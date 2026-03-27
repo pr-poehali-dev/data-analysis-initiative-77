@@ -1,22 +1,59 @@
+const rules = [
+  {
+    icon: "🚫",
+    title: "Въезд только по пропускам",
+    text: "Доступ на территорию ГЕОТЭС разрешён исключительно при наличии выданного пропуска установленного образца.",
+  },
+  {
+    icon: "📋",
+    title: "Регистрация при входе",
+    text: "Все посетители обязаны пройти регистрацию на КПП, предъявить документ, удостоверяющий личность.",
+  },
+  {
+    icon: "⚠️",
+    title: "Запрет на съёмку",
+    text: "Фото- и видеосъёмка на территории объекта запрещена без письменного разрешения руководства станции.",
+  },
+  {
+    icon: "🦺",
+    title: "Средства защиты обязательны",
+    text: "Нахождение в производственных зонах — только в защитных касках, жилетах и закрытой обуви.",
+  },
+  {
+    icon: "🐾",
+    title: "Животные на территории запрещены",
+    text: "Проход с домашними животными на охраняемую территорию не допускается.",
+  },
+  {
+    icon: "🔥",
+    title: "Курение и открытый огонь",
+    text: "Курение разрешено только в специально отведённых местах. Открытый огонь строго запрещён.",
+  },
+];
+
 export default function Featured() {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
-      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2">
-        <img
-          src="/images/woman-horse.jpg"
-          alt="Woman on horse in countryside"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1">
-        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-600">Функции, которые не стоят на месте</h3>
-        <p className="text-2xl lg:text-4xl mb-8 text-neutral-900 leading-tight">
-          Не просто список возможностей — живые, дышащие акценты. Каждая функция адаптируется к движению, контексту и настроению,
-          оживляя продукт с первого взгляда.
+    <div id="rules" className="min-h-screen bg-white px-6 py-24">
+      <div className="max-w-6xl mx-auto">
+        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-500">Охраняемый объект</h3>
+        <p className="text-3xl lg:text-5xl mb-16 text-neutral-900 leading-tight max-w-3xl">
+          Правила посещения и охраны территории Мутновской геотермальной электростанции
         </p>
-        <button className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit uppercase tracking-wide">
-          Подробнее
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {rules.map((rule) => (
+            <div key={rule.title} className="border border-neutral-200 p-6 hover:border-neutral-900 transition-colors duration-300">
+              <div className="text-3xl mb-4">{rule.icon}</div>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">{rule.title}</h4>
+              <p className="text-neutral-600 text-sm leading-relaxed">{rule.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 p-6 bg-neutral-900 text-white">
+          <p className="text-sm opacity-70 uppercase tracking-wide mb-2">Важно</p>
+          <p className="text-lg">
+            Нарушение правил охраны режимного объекта влечёт за собой административную и уголовную ответственность в соответствии с законодательством РФ.
+          </p>
+        </div>
       </div>
     </div>
   );
